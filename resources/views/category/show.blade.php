@@ -8,8 +8,11 @@
     <title>Document</title>
 </head>
 <body>
-
-
-<a href="{{route('category.index')}}">Управление категриями</a>
+    {{$category->name}}
+<br>
+Товары<br>
+    @foreach($category->products as $product)
+        {{$product->title}}<br>
+    @endforeach
 </body>
 </html>

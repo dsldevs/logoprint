@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\СategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,13 @@ Auth::routes();
 
 Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
+    Route::prefix('admin')->group(function () {
+        Route::resources([
+            'category' => СategoryController::class,
+        ]);
+    });
+
+
 });
 
 
